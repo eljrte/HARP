@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "harp-hbf"
+version = "0.2.0"
+description = "Page-level HBF simulation framework"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "eljrte"}]
+dependencies = []
+
+[project.scripts]
+harp = "harp.cli:main"
+
+[project.urls]
+Repository = "https://github.com/eljrte/HARP"
+
+[tool.setuptools.packages.find]
+where = ["src"]

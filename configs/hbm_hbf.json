@@ -1,0 +1,15 @@
+{
+  "hbm_capacity_bytes": 80000000000,
+  "hbm_bandwidth_Bps": 3350000000000,
+  "hbf_stacks": 4,
+  "hbf_capacity_bytes_per_stack": 549755813888,
+  "dies_per_stack": 16,
+  "planes_per_die": 96,
+  "page_bytes": 4096,
+  "hbf_read_bandwidth_Bps_per_stack": 1536000000000,
+  "hbf_write_bandwidth_Bps_per_stack": 84000000000,
+  "t_read_s": 0.000004096,
+  "t_program_s": 0.000075,
+  "t_rc_s": 0.000000030,
+  "plane_buffers": 2
+}
