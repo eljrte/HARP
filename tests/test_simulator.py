@@ -25,7 +25,6 @@ class SimulatorTests(unittest.TestCase):
         self.assertEqual(result.completed_requests, 1)
         self.assertEqual(result.read_payload_bytes, 4096)
         self.assertEqual(result.certificate['violations'], 0)
-        self.assertFalse(result.certificate['t_rc_explicitly_timed'])
 
     def test_single_write_has_transfer_then_full_page_program(self):
         c = self.cfg

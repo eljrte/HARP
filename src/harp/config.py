@@ -41,7 +41,6 @@ class HardwareConfig:
     hbf_write_bandwidth_Bps_per_stack: float = 84_000_000_000
     t_read_s: float = 4.096e-6
     t_program_s: float = 75e-6
-    t_rc_s: float = 30e-9
     plane_buffers: int = 2
 
     def __post_init__(self):
@@ -49,7 +48,7 @@ class HardwareConfig:
                      'dies_per_stack', 'planes_per_die', 'page_bytes', 'plane_buffers']:
             integer(getattr(self, name), name, 1)
         for name in ['hbm_bandwidth_Bps', 'hbf_read_bandwidth_Bps_per_stack',
-                     'hbf_write_bandwidth_Bps_per_stack', 't_read_s', 't_program_s', 't_rc_s']:
+                     'hbf_write_bandwidth_Bps_per_stack', 't_read_s', 't_program_s']:
             positive(getattr(self, name), name)
         if self.hbf_capacity_bytes_per_stack % self.page_bytes:
             raise ValueError('stack capacity must contain an integer number of pages')

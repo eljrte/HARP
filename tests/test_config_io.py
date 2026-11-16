@@ -20,7 +20,6 @@ class HardwareTests(unittest.TestCase):
         self.assertEqual(config.hbf_write_bandwidth_Bps_per_stack, 84_000_000_000)
         self.assertEqual(config.t_read_s, 4.096e-6)
         self.assertEqual(config.t_program_s, 75e-6)
-        self.assertEqual(config.t_rc_s, 30e-9)
 
     def test_first_stripe_covers_every_plane_once(self):
         c=HardwareConfig()

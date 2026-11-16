@@ -10,6 +10,5 @@
   "hbf_write_bandwidth_Bps_per_stack": 84000000000,
   "t_read_s": 0.000004096,
   "t_program_s": 0.000075,
-  "t_rc_s": 0.000000030,
   "plane_buffers": 2
 }

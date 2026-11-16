@@ -88,8 +88,6 @@ class Simulator:
     direction-dependent bandwidth. One HBM bandwidth resource is shared by
     reads and writes. Set ``include_hbm=False`` to model the HBF portion alone.
     Die identifiers are address hierarchy, not an additional shared-bus model.
-    ``t_rc_s`` is retained by the hardware profile but not added to latency:
-    channel width and command/data-cycle counts are not supplied by the profile.
     """
 
     def __init__(self, config: HardwareConfig, *, include_hbm: bool = True):
@@ -318,8 +316,7 @@ class Simulator:
         failures = sum(not ok for ok in checks.values())
         certificate = dict(violations=failures, **checks, max_buffers_observed=audit_peak,
                            declared_hbm_reserved_bytes=int(hbm_reserved_bytes), hbm_capacity_bytes=cfg.hbm_capacity_bytes,
-                           hbm_stage_included=self.include_hbm, stack_bus='shared half-duplex',
-                           t_rc_explicitly_timed=False)
+                           hbm_stage_included=self.include_hbm, stack_bus='shared half-duplex')
         if failures:
             raise AssertionError('simulation resource certificate failed')
         return certificate, busy_s

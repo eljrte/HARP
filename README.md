@@ -21,7 +21,6 @@ The default profile is defined in [`configs/hbm_hbf.json`](configs/hbm_hbf.json)
 | HBF | Write bandwidth per stack | 0.084 TB/s |
 | NAND | Page-read latency, `t_R` | 4.096 us |
 | NAND | Page-program latency, `t_PROG` | 75 us |
-| NAND | Read-cycle time, `t_RC` | 30 ns |
 
 GB and TB use decimal units; GiB, TiB, and KiB use binary units. In particular, the HBM capacity is 80,000,000,000 bytes. The HBF topology has 1,536 planes per stack. Plane-buffer count is a separate simulator setting, with a default of two buffers per plane.
 
@@ -56,7 +55,7 @@ A read follows `page sense -> stack transfer -> HBM write`. A write follows `HBM
 
 The reference backend uses ready-order FIFO arbitration. NAND operations serialize on a plane, while different planes can operate concurrently. Reads and writes share one transfer resource per stack, using their respective bandwidths. HBM transfers share one bandwidth resource. Read buffers remain occupied until the stack transfer finishes; write buffers remain occupied through programming.
 
-Page addresses are striped across stacks and planes. Die identifiers describe the resource hierarchy; block layout, erase operations, and die-level command restrictions are not modeled. The backend uses aggregate stack bandwidth instead of a byte-level NAND bus. `t_RC` is retained in the hardware profile for interface-level backends and is not added as a second transfer delay.
+Page addresses are striped across stacks and planes. Die identifiers describe the resource hierarchy; block layout, erase operations, and die-level command restrictions are not modeled. The backend uses aggregate stack bandwidth instead of a byte-level NAND bus.
 
 HBM capacity is a configuration limit, not an application memory-allocation model. The framework does not generate application workloads or implement application-specific management policies.
 
